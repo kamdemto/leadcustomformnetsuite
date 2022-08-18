@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>CAMTRACK LEAD  </title>
+
+     <meta name="description" content="GESTION DES REQUETTES CLIENTS CAMTRACK">
+  
+  <meta name="author" content="Olivier Kamdem">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <!-- Include Bootstrap CSS from CDN -->
+      <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
+      <!-- You can include Custom Styling -->
+      <style>
+         .note
+         {
+            text-align: center;
+         
+            background: -webkit-linear-gradient(left, #fff, #ccc);
+            color: #fff;
+            font-weight: bold;
+            line-height: 80px;
+            margin-bottom: 10px;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            
+         }
+
+         #main_section {
+            padding:10px;
+         }
+         input[type="text"], select {
+            width: 90%;
+         }
+         option {
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 20px;
+         }
+         @media (min-width: 960px) {
+            #captcha_section {
+               margin-left: 55px;
+            }
+         }
+       fieldset.row.span11 {
+    margin-bottom: 80px;
+     }
+         .container-fluid{
+            padding: 0px;
+            margin: 0px;
+         }
+         .inputreq .textarea{
+            margin: 0px 0px 10px; 
+            width: 939px;
+             height: 118px;
+         }
+         .footer {
+           
+            left: 0;
+            bottom: 0;
+            margin-top:40px;
+            width: 100%;
+            background-color: #253469;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            }
+            #main_section {
+            padding: 10px;
+            background: #d3ddf82e;
+            border-radius: 8px;
+            padding-left: 75px;
+            margin-top: 190px;
+            }
+            #main_section
+            {
+               position:relative;
+               -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+                  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+                        box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            }
+            #main_section:before, #main_section:after
+            {
+            content:"";
+               
+               z-index:-1;
+               -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+               -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+               box-shadow:0 0 20px rgba(0,0,0,0.8);
+               top:50%;
+               bottom:0;
+               left:10px;
+               right:10px;
+               -moz-border-radius:100px / 10px;
+               border-radius:100px / 10px;
+            }
+            #main_section:after
+            {
+            right:10px;
+               left:auto;
+               -webkit-transform:skew(8deg) rotate(3deg);
+                  -moz-transform:skew(8deg) rotate(3deg);
+                  -ms-transform:skew(8deg) rotate(3deg);
+                     -o-transform:skew(8deg) rotate(3deg);
+                        transform:skew(8deg) rotate(3deg);
+            }
+
+
+            legend {
+            display: block;
+            width: 85% !important;
+            padding: 0;
+            margin-bottom: 20px;
+            font-size: 21px;
+            line-height: 40px;
+            color: #333333;
+            border: 0;
+            border-bottom: 1px solid #e5e5e5;
+            }
+            img.img-fluid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* margin-top: 60px; */
+            z-index: 1000;
+            }
+
+      </style>
+   </head>
+   <body>
+
+      <div class="container-fluid">
+         <div class="note position-fixed">
+            <img src="https://6231079.app.netsuite.com/core/media/media.nl?id=12341&c=6231079&h=RKOkWKvQ1c-TVEHY8le4iN39mfXc84llbimm9EjL6eV1FF6q"  alt="BANNER LEAD CAMTRACK" class="img-fluid" width='100%'>
+        </div>
+      </div>
+
+      <!-- This section is for the main body and the form -->
+      <div id="main_section" class="container">
+         <!-- <div class="page-header">
+            
+             
+             <nav aria-label="breadcrumb">
+               <ol class="breadcrumb">
+                 <li class="breadcrumb-item"><a target="_blank" href="http://6231079-sb1.shop.netsuite.com/s.nl?c=6231079_SB1&n=1">Accueil   /  </a></li>
+                 <li class="breadcrumb-item active" aria-current="page"> Créer un nouveau ticket</li>
+               </ol>
+             </nav>
+         </div> -->
+
+         <!-- This is required by NetSuite as it will generate the form element which will do a POST request to the back-end -->
+         <NLFORM>
+
+            <!-- Now you can specify your fields. You can use CRMSDK or what is commonly called the NL tags on this HTML Document -->
+            <fieldset class="row span12">
+               <legend>INFORMATIONS CLIENT:</legend>
+                 <div class="span5">
+                  <div class="control-group">
+                     <label class="control-label">Nom *</label>
+                     <div class="controls">
+
+                          <!-- Add firstname customer catégorie - build by Olivier Kamdem-->
+                        <NLLASTNAME>
+                     </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">Prenom *</label> 
+                     <div class="controls">
+
+                        <!-- Add hiden filiale - build by Olivier Kamdem-->
+                      <NLFIRSTNAME>
+                     </div>
+                  </div>
+                  <div class="control-group">
+                     <!-- <label class="control-label">*Filiale</label> -->
+                     <div class="controls">
+
+                        <!-- Add hiden filiale - build by Olivier Kamdem-->
+                      <NLSUBSIDIARY>
+                     </div>
+                  </div>
+                  
+                  
+                  
+                  <div class="control-group">
+                     <label class="control-label">Type Client*</label>
+                     <div class="controls">
+
+                        <!-- This will be translated by NetSuite to an input field for Last Name -->
+                        <NLCUSTENTITY_TYPECLIENT>
+                     </div>
+                  </div>
+                  <div class="control-group">
+                     <label class="control-label">Si vous êtes une entreprise entrez votre dénomination sociale </label> 
+                     <div class="controls">
+
+                        <!-- Add hiden filiale - build by Olivier Kamdem-->
+                      <NLCOMPANYNAME>
+                     </div>
+                  </div>
+                  
+                  
+               </div>
+               <div class="span5">
+                  <div class="control-group">
+                     <label class="control-label">Téléphone *</label>
+                     <div class="controls">
+
+                         <!-- Add company - build by Olivier Kamdem-->
+                        <NLPHONE>
+                     </div>
+                  </div>
+                  <div class="control-group">
+                     <label class="control-label">Email </label> 
+                    <div class="controls">
+
+                       <!-- Add hiden filiale - build by Olivier Kamdem-->
+                     <NLEMAIL>
+                    </div>
+                 </div>
+                <div class="control-group">
+                    <label class="control-label"> Ville *</label> 
+                    <div class="controls">
+
+                        <!-- Add name customer- build by Olivier Kamdem-->
+                       <NLCUSTENTITY_LISTVILLE>
+                    </div>
+                 </div>
+                 <div class="control-group">
+                    <label class="control-label">Localisation </label>
+                    <div class="controls">
+
+                       <!-- Add email customer - build by Olivier Kamdem-->
+                       <NLADDRESS1>
+                    </div>
+                 </div>
+                
+                  
+               </div>
+            </fieldset>
+            <fieldset class="row span12">
+               <legend>INFORMATIONS VEHICULE:</legend>
+			   <div class="span3">
+               <div class="control-group">
+                  <label class="control-label">Nombre de véhicule * </label>
+                  <div class="controls">
+
+                     <!-- Add email customer - build by Olivier Kamdem-->
+                     <NLCUSTENTITY_ALLVEHICLE>
+                  </div>
+               </div>
+			    </div>
+				<div class="span3">
+               <div class="control-group">
+                  <label class="control-label">Type Véhicule * </label>
+                  <div class="controls">
+
+                     <!-- Add email customer - build by Olivier Kamdem-->
+                     <NLCUSTENTITY_TYPEVEHICLE>
+                  </div>
+               </div>
+			    </div>
+				<div class="span3">
+               <div class="control-group">
+                  <label class="control-label">Marque Véhicule * </label>
+                  <div class="controls">
+
+                     <!-- Add email customer - build by Olivier Kamdem-->
+                     <NLCUSTENTITY_MARQUEVEHICULE>
+                  </div>
+               </div>
+			    </div>
+               
+            </fieldset>
+            <fieldset class="row span12">
+               <legend>INFORMATIONS RENDEZ-VOUS :</legend>
+               
+                  <div class="span5">
+                     <div class="control-group">
+                        <label class="control-label">Type rendez-vous </label>
+                        <div class="controls">
+      
+                           <!-- Add email customer - build by Olivier Kamdem-->
+                           <NLCUSTENTITY_TYPERDV>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="span5">
+                     <div class="control-group">
+                        <label class="control-label">Date  </label>
+                        <div class="controls">
+      
+                           <!-- Add email customer - build by Olivier Kamdem-->
+                           <NLCUSTENTITY_DATERDV>
+                        </div>
+                     </div>
+                 
+               </div>
+			    <div class="span5">
+                     <div class="control-group">
+                        <label class="control-label">Commerciale  </label>
+                        <div class="controls">
+      
+                           <!-- Add email customer - build by Olivier Kamdem-->
+                           <NLCUSTENTITY_RESSOURCELEAD>
+                        </div>
+                     </div>
+                 
+               </div>
+			   <div class="span5">
+                     <div class="control-group">
+                        <label class="control-label">Tranche Horaire  </label>
+                        <div class="controls">
+      
+                           <!-- Add email customer - build by Olivier Kamdem-->
+                           <NLCUSTENTITY_TRANCHEHORO>
+                        </div>
+                     </div>
+                 
+               </div>
+               
+              
+            </fieldset>
+            <fieldset class="row span12">
+               <!-- <legend>INFORMATIONS RVD:</legend> -->
+               
+                <div class="span5">
+                <div class="control-group">
+                   <label class="control-label">Informations supplémentaires</label>
+                   <div class="controls">
+ 
+                     <!-- Add fiied message textarea build by Olivier Kamdem-->
+                      <NLCOMMENTS>
+ 
+                   </div>
+				    </div>
+                </div>
+				 <div class="span5">
+                <div class="control-group">
+                    
+                  <div class="controls">
+                      <!-- Of course we need a way to submit our form so we need to include none other than the Submit button -->
+                  <input id="submitorder" name="submitted" type="submit" class="btn btn-primary" style="margin-top: 20px;" value="Envoyer" />
+                  <input id="submitorder" type="reset" class="btn btn-default" style="margin-top: 20px;" value="Annuler" />
+                  </div>
+               </div>
+			    </div>
+            </fieldset>
+           
+         </form>
+      </div>
+      <footer class="footer">
+         <div class="container">
+         <div class="pull-left">
+            <b>Copyright © 2020 <a href="#">CAMTRACK SAS</a>.</b> All rights --&gt;
+         reserved.
+         </div>
+        
+         <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0.0
+          </div>
+       </div>
+       </footer>
+      <!-- Include jQuery library. This is a dependency of bootstrap and we will also use this later on. -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+         <script>
+            //$breadcrumb-divider: quote(">");
+         </script>
+      <!-- Include the Bootstrap JavaScript library -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   </body>
+</html>
